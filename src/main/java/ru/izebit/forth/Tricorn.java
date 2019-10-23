@@ -1,23 +1,18 @@
-package ru.izebit.third;
+package ru.izebit.forth;
 
 import java.awt.geom.Rectangle2D;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author <a href="mailto:izebit@gmail.com">Artem Konovalov</a> <br/>
  * Date: 23.10.2019
  */
-public class Mandelbrot extends FractalGenerator {
-    private static final int MAX_ITERATIONS = 2000;
-    private final Map<Double, Map<Double, Integer>> numbers = new HashMap<>();
-
+public class Tricorn extends FractalGenerator {
     @Override
     public Rectangle2D.Double getInitialRange(final Rectangle2D.Double range) {
         range.x = -2;
-        range.y = -1.5;
-        range.width = 3;
-        range.height = 3;
+        range.y = -2;
+        range.width = 4;
+        range.height = 4;
         return range;
     }
 
@@ -33,7 +28,8 @@ public class Mandelbrot extends FractalGenerator {
             if (real + image > 4.0)
                 return i - 1;
 
-            zImage = 2 * zReal * zImage + pointImage;
+            double buf = 2 * zReal * zImage;
+            zImage = (buf >= 0.0 ? -buf : Math.abs(buf)) + pointImage;
             zReal = real - image + pointReal;
         }
 

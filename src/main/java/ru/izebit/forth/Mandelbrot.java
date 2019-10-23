@@ -1,4 +1,4 @@
-package ru.izebit.third;
+package ru.izebit.forth;
 
 import java.awt.geom.Rectangle2D;
 import java.util.HashMap;
@@ -9,7 +9,6 @@ import java.util.Map;
  * Date: 23.10.2019
  */
 public class Mandelbrot extends FractalGenerator {
-    private static final int MAX_ITERATIONS = 2000;
     private final Map<Double, Map<Double, Integer>> numbers = new HashMap<>();
 
     @Override
